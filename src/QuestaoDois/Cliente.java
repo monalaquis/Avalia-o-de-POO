@@ -1,11 +1,15 @@
 package QuestaoDois;
 
+import java.util.ArrayList;
+
 public class Cliente {
 
 	private int id;
 	private String nome;
 	private int idade;
 	private String telefone;
+	private static ArrayList <Cliente> clientes = new ArrayList<>();
+	
 	public String getNome() {
 		return nome;
 	}
@@ -31,15 +35,25 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 	
-	@Override
-	public String toString() {
-		return  "ID: "+ id + "\nNOME: " + nome + "\nIDADE: " + idade + "\nTELEFONE: " + telefone;
-	}
+
 	public Cliente(int id, String nome, int idade, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.idade = idade;
 		this.telefone = telefone;
+		
+		clientes.add(this);
+	}
+	
+	public static void mostraClinCadastrado() {
+		for (Cliente cliente : clientes) {
+			
+			System.out.println("ID: "+cliente.id);
+			System.out.println("Nome: "+cliente.nome);
+			System.out.println("Idade: "+cliente.idade);
+			System.out.println("Telefone: "+cliente.telefone);
+			
+		}
 	}
 	
 }
